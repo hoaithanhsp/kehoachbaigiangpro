@@ -9,9 +9,9 @@ interface ApiKeyModalProps {
 }
 
 const MODELS = [
-  { id: 'gemini-3-flash-preview', name: 'Gemini 2.0 Flash (Preview)', description: 'Nhanh nhất, tiết kiệm (Khuyên dùng)' },
-  { id: 'gemini-3-pro-preview', name: 'Gemini 2.0 Pro (Preview)', description: 'Cân bằng tốc độ và chất lượng' },
-  { id: 'gemini-2.5-flash', name: 'Gemini 1.5 Flash', description: 'Ổn định, thế hệ trước' },
+  { id: 'gemini-3-flash-preview', name: 'Gemini 3 Flash (Preview)', description: 'Nhanh nhất, tiết kiệm (Khuyên dùng)' },
+  { id: 'gemini-3-pro-preview', name: 'Gemini 3 Pro (Preview)', description: 'Cân bằng tốc độ và chất lượng' },
+  { id: 'gemini-2.5-flash', name: 'Gemini 2.5 Flash', description: 'Ổn định, thế hệ trước' },
 ];
 
 const ApiKeyModal: React.FC<ApiKeyModalProps> = ({ isOpen, onClose, onSave, initialApiKey = '', initialModel = 'gemini-3-flash-preview' }) => {
@@ -38,7 +38,7 @@ const ApiKeyModal: React.FC<ApiKeyModalProps> = ({ isOpen, onClose, onSave, init
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
       <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl w-full max-w-2xl overflow-hidden animate-fadeIn">
-        
+
         {/* Header */}
         <div className="bg-gradient-to-r from-teal-600 to-emerald-600 p-6 text-white">
           <h2 className="text-2xl font-bold flex items-center gap-2">
@@ -49,87 +49,85 @@ const ApiKeyModal: React.FC<ApiKeyModalProps> = ({ isOpen, onClose, onSave, init
         </div>
 
         <div className="p-6 md:p-8 space-y-8">
-            
-            {/* API Key Section */}
-            <div className="space-y-4">
-                <label className="block text-sm font-bold text-slate-700 dark:text-slate-300">
-                    Google Gemini API Key <span className="text-red-500">*</span>
-                </label>
-                <div className="relative">
-                    <input 
-                        type="password" 
-                        value={apiKey}
-                        onChange={(e) => {
-                            setApiKey(e.target.value);
-                            setError('');
-                        }}
-                        placeholder="Nhập khóa API của bạn..."
-                        className="w-full pl-10 pr-4 py-3 bg-slate-50 dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 rounded-xl focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 transition-all outline-none"
-                    />
-                    <span className="material-symbols-outlined absolute left-3 top-3.5 text-slate-400">key</span>
-                </div>
-                {error && <p className="text-red-500 text-sm font-medium flex items-center gap-1"><span className="material-symbols-outlined text-sm">error</span>{error}</p>}
-                
-                <div className="bg-blue-50 dark:bg-blue-900/20 text-blue-800 dark:text-blue-200 p-4 rounded-xl text-sm flex gap-3 items-start border border-blue-100 dark:border-blue-800">
-                    <span className="material-symbols-outlined text-blue-600 shrink-0">info</span>
-                    <div>
-                        <p className="font-bold mb-1">Chưa có API Key?</p>
-                        <p>Truy cập <a href="https://aistudio.google.com/api-keys" target="_blank" rel="noreferrer" className="text-blue-600 dark:text-blue-400 font-bold underline hover:text-blue-800">Google AI Studio</a> để lấy key miễn phí.</p>
-                    </div>
-                </div>
-            </div>
 
-            {/* Model Selection */}
-            <div className="space-y-4">
-                <label className="block text-sm font-bold text-slate-700 dark:text-slate-300">
-                    Chọn Model AI (Ưu tiên)
-                </label>
-                <div className="grid grid-cols-1 gap-3">
-                    {MODELS.map((model) => (
-                        <div 
-                            key={model.id}
-                            onClick={() => setSelectedModel(model.id)}
-                            className={`p-4 rounded-xl border-2 cursor-pointer transition-all flex items-center gap-4 ${
-                                selectedModel === model.id 
-                                ? 'border-teal-500 bg-teal-50 dark:bg-teal-900/20' 
-                                : 'border-slate-200 dark:border-slate-700 hover:border-teal-200'
-                            }`}
-                        >
-                            <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 ${
-                                selectedModel === model.id ? 'border-teal-500' : 'border-slate-300'
-                            }`}>
-                                {selectedModel === model.id && <div className="w-2.5 h-2.5 rounded-full bg-teal-500" />}
-                            </div>
-                            <div>
-                                <h4 className="font-bold text-slate-800 dark:text-slate-200">{model.name}</h4>
-                                <p className="text-slate-500 text-sm mt-0.5">{model.description}</p>
-                            </div>
-                            {model.id === 'gemini-3-flash-preview' && (
-                                <span className="ml-auto bg-teal-100 text-teal-700 text-xs font-bold px-2 py-1 rounded">DEFAULT</span>
-                            )}
-                        </div>
-                    ))}
-                </div>
+          {/* API Key Section */}
+          <div className="space-y-4">
+            <label className="block text-sm font-bold text-slate-700 dark:text-slate-300">
+              Google Gemini API Key <span className="text-red-500">*</span>
+            </label>
+            <div className="relative">
+              <input
+                type="password"
+                value={apiKey}
+                onChange={(e) => {
+                  setApiKey(e.target.value);
+                  setError('');
+                }}
+                placeholder="Nhập khóa API của bạn..."
+                className="w-full pl-10 pr-4 py-3 bg-slate-50 dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 rounded-xl focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 transition-all outline-none"
+              />
+              <span className="material-symbols-outlined absolute left-3 top-3.5 text-slate-400">key</span>
             </div>
+            {error && <p className="text-red-500 text-sm font-medium flex items-center gap-1"><span className="material-symbols-outlined text-sm">error</span>{error}</p>}
+
+            <div className="bg-blue-50 dark:bg-blue-900/20 text-blue-800 dark:text-blue-200 p-4 rounded-xl text-sm flex gap-3 items-start border border-blue-100 dark:border-blue-800">
+              <span className="material-symbols-outlined text-blue-600 shrink-0">info</span>
+              <div>
+                <p className="font-bold mb-1">Chưa có API Key?</p>
+                <p>Truy cập <a href="https://aistudio.google.com/api-keys" target="_blank" rel="noreferrer" className="text-blue-600 dark:text-blue-400 font-bold underline hover:text-blue-800">Google AI Studio</a> để lấy key miễn phí.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Model Selection */}
+          <div className="space-y-4">
+            <label className="block text-sm font-bold text-slate-700 dark:text-slate-300">
+              Chọn Model AI (Ưu tiên)
+            </label>
+            <div className="grid grid-cols-1 gap-3">
+              {MODELS.map((model) => (
+                <div
+                  key={model.id}
+                  onClick={() => setSelectedModel(model.id)}
+                  className={`p-4 rounded-xl border-2 cursor-pointer transition-all flex items-center gap-4 ${selectedModel === model.id
+                      ? 'border-teal-500 bg-teal-50 dark:bg-teal-900/20'
+                      : 'border-slate-200 dark:border-slate-700 hover:border-teal-200'
+                    }`}
+                >
+                  <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 ${selectedModel === model.id ? 'border-teal-500' : 'border-slate-300'
+                    }`}>
+                    {selectedModel === model.id && <div className="w-2.5 h-2.5 rounded-full bg-teal-500" />}
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-800 dark:text-slate-200">{model.name}</h4>
+                    <p className="text-slate-500 text-sm mt-0.5">{model.description}</p>
+                  </div>
+                  {model.id === 'gemini-3-flash-preview' && (
+                    <span className="ml-auto bg-teal-100 text-teal-700 text-xs font-bold px-2 py-1 rounded">DEFAULT</span>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
 
         </div>
 
         {/* Footer */}
         <div className="p-6 border-t border-slate-100 dark:border-slate-800 flex justify-end gap-3 bg-slate-50 dark:bg-slate-800/50">
-           {initialApiKey && (
-             <button 
-               onClick={onClose}
-               className="px-6 py-2.5 rounded-xl font-bold text-slate-600 hover:bg-slate-200 transition-colors"
-             >
-               Đóng
-             </button>
-           )}
-           <button 
-             onClick={handleSave}
-             className="px-8 py-2.5 bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-500 hover:to-emerald-500 text-white font-bold rounded-xl shadow-lg shadow-teal-900/20 transition-all transform hover:-translate-y-0.5 focus:ring-4 focus:ring-teal-500/20"
-           >
-             Lưu Cấu Hình
-           </button>
+          {initialApiKey && (
+            <button
+              onClick={onClose}
+              className="px-6 py-2.5 rounded-xl font-bold text-slate-600 hover:bg-slate-200 transition-colors"
+            >
+              Đóng
+            </button>
+          )}
+          <button
+            onClick={handleSave}
+            className="px-8 py-2.5 bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-500 hover:to-emerald-500 text-white font-bold rounded-xl shadow-lg shadow-teal-900/20 transition-all transform hover:-translate-y-0.5 focus:ring-4 focus:ring-teal-500/20"
+          >
+            Lưu Cấu Hình
+          </button>
         </div>
 
       </div>
