@@ -66,7 +66,7 @@ const App: React.FC = () => {
           </button>
           <div className="flex flex-col">
             <h1 className="text-xl font-bold leading-tight tracking-tight text-teal-900 dark:text-white">KẾ HOẠCH BÀI GIẢNG PRO</h1>
-            <p className="text-sm font-medium text-teal-900 dark:text-teal-50">Thiết kế bài giảng sinh động, sáng tạo</p>
+            <p className="text-sm font-medium text-teal-900 dark:text-teal-50">Nâng cấp bài giảng tự động - phát triển bởi thầy Trần Hoài Thanh</p>
           </div>
         </div>
         <div className="flex items-center gap-3">
@@ -153,7 +153,8 @@ const App: React.FC = () => {
         <div className="fixed inset-0 bg-white/90 dark:bg-black/80 z-[100] flex flex-col items-center justify-center backdrop-blur-sm">
           <div className="w-16 h-16 border-4 border-teal-200 border-t-primary rounded-full animate-spin mb-4"></div>
           <h3 className="text-xl font-bold text-teal-900 dark:text-white mb-2">Đang phân tích & thiết kế...</h3>
-          <p className="text-teal-600 dark:text-teal-300">AI đang xây dựng các hoạt động tích cực cho lớp học của bạn</p>
+          <p className="text-teal-600 dark:text-teal-300 mb-1">AI đang xây dựng các hoạt động tích cực cho lớp học của bạn</p>
+          <p className="text-teal-500 text-sm animate-pulse">(Quá trình tạo MÔ PHỎNG & GIÁO ÁN có thể mất từ 30-60 giây)</p>
         </div>
       )}
 
