@@ -104,12 +104,14 @@ export const generateLessonPlan = async (input: LessonInput, apiKey: string, mod
     - Công nghệ/Ứng dụng mong muốn: ${input.config.techApps || 'Tự đề xuất phù hợp'}
     - Tích hợp liên môn: ${input.config.integration || 'Không yêu cầu'}
     - Mục tiêu phát triển năng lực: ${allCompetencies.join(', ')}
+    - YÊU CẦU MÔ PHỎNG: ${input.config.simulationTopic || 'Tự đề xuất mô phỏng phù hợp'}
     
     YÊU CẦU:
     1. Phân tích nội dung và đề xuất cải tiến.
     2. fullPlanHtml phải chứa danh sách các thẻ <div class="change-block type-add">...</div> hoặc <div class="change-block type-modify">...</div>.
     3. Bên trong change-block, hãy dùng <h4 class="location">...</h4>, <div class="instruction">...</div>, <div class="content">...</div>.
     4. TUYỆT ĐỐI CHÚ Ý: Các công thức Toán PHẢI dùng định dạng LaTeX (ví dụ $\\\\frac{a}{b}$), KHÔNG dùng ký tự Unicode để đảm bảo khi copy sang Word có thể convert được.
+    5. Đối với SIMULATION: Hãy viết trọn vẹn 1 file HTML (kèm CSS/JS bên trong) để chạy mô phỏng tương tác. Code phải chạy ngay được khi mở bằng trình duyệt 1 cách độc lập.
   `;
 
   parts.push({ text: prompt });

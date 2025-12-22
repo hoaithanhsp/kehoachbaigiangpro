@@ -18,6 +18,7 @@ export interface LessonConfig {
   customCompetency: string;
   techApps: string;
   integration: string;
+  simulationTopic?: string;
 }
 
 export interface LessonInput {
