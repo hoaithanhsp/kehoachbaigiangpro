@@ -143,7 +143,7 @@ const InputForm: React.FC<InputFormProps> = ({ onSubmit, loadingState }) => {
                 <section className={`bg-card-light dark:bg-card-dark rounded-xl shadow-sm border ${errors.file ? 'border-red-400' : 'border-[#ccfbf1] dark:border-teal-900'} overflow-hidden flex flex-col h-full max-h-[500px]`}>
                     <div className="p-5 border-b border-[#ccfbf1] dark:border-teal-900">
                         <h2 className="text-lg font-bold text-teal-900 dark:text-teal-50">Tài liệu Nguồn</h2>
-                        <p className="text-sm text-teal-600 dark:text-teal-200 mt-1">Tải lên giáo án (PDF, Word, Ảnh) của bạn.</p>
+                        <p className="text-sm text-teal-600 dark:text-teal-200 mt-1">Tải lên giáo án (DẠNG PDF) của bạn.</p>
                     </div>
                     <div className="flex-1 p-5 flex flex-col justify-center">
                         <div
