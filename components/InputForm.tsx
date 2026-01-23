@@ -15,7 +15,7 @@ const GRADE_OPTIONS: Record<string, string[]> = {
 const SUBJECT_OPTIONS = [
     "Toán", "Tin học", "Vật lí", "Hóa học", "Sinh học", "Ngữ văn", "Lịch sử", "Địa lí",
     "Tiếng Anh", "Giáo dục thể chất", "Giáo dục quốc phòng", "Âm nhạc",
-    "Thể dục", "Công nghệ", "Giáo dục Kinh tế và Pháp luật", "Hoạt động trải nghiệm, hướng nghiệp"
+    "Thể dục", "Công nghệ", "Giáo dục địa phương", "Giáo dục Kinh tế và Pháp luật", "Hoạt động trải nghiệm, hướng nghiệp"
 ];
 
 const COMPETENCY_OPTIONS = [
